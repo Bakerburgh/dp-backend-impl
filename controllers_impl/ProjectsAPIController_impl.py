@@ -15,12 +15,13 @@ def get_projects():
     :rtype: List[ProjectBrief]
     """
     db = Database()
-    return db.projectList()
+    return db.hProjectList()
 
 
 def get_project_details(proj_id):
+
     db = Database()
-    return db.projectList()
+    return db.hProjectDetails(proj_id)
 
 
 def check_tag(tag):  # noqa: E501
