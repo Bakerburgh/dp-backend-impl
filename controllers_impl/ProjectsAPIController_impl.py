@@ -1,10 +1,21 @@
-from flask import jsonify
 import re
+import yaml
+
+from yaml.scanner import ScannerError
+
+from werkzeug.datastructures import FileStorage
 
 from openapi_server.models import TagStatus
 from ..db import Database
+from .. import projects_fs as fs
+
+from openapi_spec_validator import validate_spec
+from openapi_spec_validator.exceptions import ValidationError
 
 urlSafe = re.compile('^[a-zA-Z0-9_-]*$')
+# Project IDs that would conflict with other URLs
+reservedTags = ['new']
+
 
 def get_projects():
     """Get Project List
@@ -14,23 +25,49 @@ def get_projects():
 
     :rtype: List[ProjectBrief]
     """
-    db = Database()
-    return db.hProjectList()
+    return fs.list_projects()
 
 
-def get_project_details(proj_id):
+def get_project_details(proj_id: str):
+    ret = fs.project_details(proj_id.lower())
+    if ret is None:
+        return None, 404
+    return ret
 
-    db = Database()
-    return db.hProjectDetails(proj_id)
 
-
-def check_tag(tag):  # noqa: E501
+def check_tag(tag):
     m = urlSafe.fullmatch(tag)
     if m is None:
         return TagStatus(legal=False, available=False, message='Only letters, numbers, _, and - are allowed')
+    if tag in reservedTags:
+        return TagStatus(legal=True, available=False)
+    return TagStatus(legal=True, available=fs.project_tag_available(tag))
 
-    db = Database()
-    return {
-        'available': db.tagAvailable(tag),
-        'lega': True
-    }
+
+def add_project(name, tag, specfile: FileStorage, description):
+    tag_status = check_tag(tag)
+    if not tag_status.legal:
+        return "Invalid project tag '%s'" % tag, 400
+    if not tag_status.available:
+        return "Project Tag Conflict", 409
+
+
+
+    content = specfile.read()
+    try:
+        parsed = yaml.safe_load(content)
+    except ScannerError:
+        return "Invalid JSON or YAML content", 400
+
+    print(type(parsed))
+    try:
+        x = validate_spec(parsed)
+    except ValidationError as e:
+        return "Invalid OpenAPI specification", 400
+    print('x', x)
+    # with specfile as f:
+    #     print(type(f))
+    #     print(f['openapi'])
+    # print(specfile['openapi'])
+    # validate_spec(specfile)
+    return None, 501
