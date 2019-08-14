@@ -5,7 +5,7 @@ from yaml.scanner import ScannerError
 
 from werkzeug.datastructures import FileStorage
 
-from openapi_server.models import TagStatus
+from openapi_server.models import TagStatus, NewProject
 from ..db import Database
 from .. import projects_fs as fs
 
@@ -44,27 +44,30 @@ def check_tag(tag):
     return TagStatus(legal=True, available=fs.project_tag_available(tag))
 
 
-def add_project(name, tag, specfile: FileStorage, description):
-    tag_status = check_tag(tag)
+def add_project(proj: NewProject):
+    tag_status = check_tag(proj.tag)
     if not tag_status.legal:
-        return "Invalid project tag '%s'" % tag, 400
+        return "Invalid project tag '%s'" % proj.tag, 400
     if not tag_status.available:
         return "Project Tag Conflict", 409
 
 
+    #
+    # content = specfile.read()
+    # try:
+    #     parsed = yaml.safe_load(content)
+    # except ScannerError:
+    #     return "Invalid JSON or YAML content", 400
+    #
+    # print(type(parsed))
+    # try:
+    #     validate_spec(parsed)
+    # except ValidationError as e:
+    #     return "Invalid OpenAPI specification", 400
 
-    content = specfile.read()
-    try:
-        parsed = yaml.safe_load(content)
-    except ScannerError:
-        return "Invalid JSON or YAML content", 400
+    fs.make_project(proj)
 
-    print(type(parsed))
-    try:
-        x = validate_spec(parsed)
-    except ValidationError as e:
-        return "Invalid OpenAPI specification", 400
-    print('x', x)
+
     # with specfile as f:
     #     print(type(f))
     #     print(f['openapi'])
