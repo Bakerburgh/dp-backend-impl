@@ -5,13 +5,13 @@ from yaml.scanner import ScannerError
 
 from werkzeug.datastructures import FileStorage
 
-from openapi_server.models import TagStatus, NewProject
+from openapi_server.models import TagStatus, NewProject, ProjectDetails
 from ..db import Database
 from .. import projects_fs as fs
 
 from openapi_spec_validator import validate_spec
 from openapi_spec_validator.exceptions import ValidationError
-
+from datetime import datetime
 urlSafe = re.compile('^[a-zA-Z0-9_-]*$')
 # Project IDs that would conflict with other URLs
 reservedTags = ['new']
@@ -50,7 +50,6 @@ def add_project(proj: NewProject):
         return "Invalid project tag '%s'" % proj.tag, 400
     if not tag_status.available:
         return "Project Tag Conflict", 409
-
 
     #
     # content = specfile.read()
