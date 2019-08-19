@@ -64,7 +64,7 @@ def add_project(proj: NewProject):
     # except ValidationError as e:
     #     return "Invalid OpenAPI specification", 400
 
-    fs.make_project(proj)
+    return fs.make_project(proj)
 
 
     # with specfile as f:
@@ -72,4 +72,8 @@ def add_project(proj: NewProject):
     #     print(f['openapi'])
     # print(specfile['openapi'])
     # validate_spec(specfile)
-    return None, 501
+    # return None, 501
+
+
+def delete_project(proj_id):
+    return fs.delete_project(proj_id)

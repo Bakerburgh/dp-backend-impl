@@ -5,7 +5,7 @@ import os
 import yaml
 from openapi_server.server_impl.projects_fs.internal.caches import GlobCache, CacheMap
 import datetime
-
+import shutil
 
 # Find the directory storing the projects
 PROJ_DIR = os.getenv('PROJECT_DIR')
@@ -114,6 +114,18 @@ def make_project(proj: NewProject):
 
     project = ProjectDetails(tag=proj.tag, name=proj.name, last_modified=datetime.datetime.now(), description=proj.description)
     _save_project(project)
+    return project
+
+
+def delete_project(tag: str):
+    dirname = FileNames.project_dir(tag)
+    if os.path.exists(dirname):
+        shutil.rmtree(dirname)
+        CacheRegistry.project_details.remove(tag)
+        CacheRegistry.project_list.filter(lambda proj: proj.tag == tag)
+        return 204
+    else:
+        return 404
 
 
 def _save_project(details: ProjectDetails):

@@ -33,6 +33,9 @@ class GlobCache:
         self._data = self.accessor(*self.args)
         return self._data
 
+    def filter(self, filter_fn):
+        self._data = filter(filter_fn, self._data)
+
 
 class CacheMap:
 
@@ -54,4 +57,8 @@ class CacheMap:
             cache = GlobCache(self.patternBuilder(key), self.accessor, [key])
             self.caches[key] = cache
         return cache
+
+    def remove(self, key):
+        if key in self.caches:
+            del self.caches[key]
 
