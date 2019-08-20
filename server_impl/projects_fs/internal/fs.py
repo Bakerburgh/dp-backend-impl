@@ -3,7 +3,7 @@ from glob import glob
 from openapi_server.models import ProjectBrief, ProjectDetails, NewProject
 import os
 import yaml
-from openapi_server.server_impl.projects_fs.internal.caches import GlobCache, CacheMap
+from server_impl.projects_fs.internal.caches import GlobCache, CacheMap
 import datetime
 import shutil
 
