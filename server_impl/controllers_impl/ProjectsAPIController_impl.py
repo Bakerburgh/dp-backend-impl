@@ -1,17 +1,10 @@
 import re
-import yaml
-
-from yaml.scanner import ScannerError
-
 from werkzeug.datastructures import FileStorage
 
 from openapi_server.models import TagStatus, NewProject, ProjectDetails
-from ..db import Database
-from .. import projects_fs as fs
+from server_impl.projects_fs import ProjectWrapper
+from server_impl import projects_fs as fs
 
-from openapi_spec_validator import validate_spec
-from openapi_spec_validator.exceptions import ValidationError
-from datetime import datetime
 urlSafe = re.compile('^[a-zA-Z0-9_-]*$')
 # Project IDs that would conflict with other URLs
 reservedTags = ['new']
@@ -77,3 +70,27 @@ def add_project(proj: NewProject):
 
 def delete_project(proj_id):
     return fs.delete_project(proj_id)
+
+
+def download_api_file(proj_id):
+    return None
+
+
+def upload_api_file(proj_id: str, specfile: FileStorage):
+    """Upload an OpenAPI specification file.
+
+    This adds an API specification file that gets parsed and validated. The return value is the updated @ProjectDetails.  # noqa: E501
+
+    :param proj_id: The identifier of a single project
+    :type proj_id: str
+    :param specfile:
+    :type specfile: FileStorage
+
+    :rtype: ProjectDetails
+    """
+    wrapper = ProjectWrapper(proj_id)
+    if wrapper is None:
+        return 404
+
+    wrapper.set_api(specfile)
+    return wrapper.finish()
