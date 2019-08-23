@@ -7,12 +7,15 @@ from openapi_server.models import ProjectBrief, ProjectDetails, NewProject, Stri
 
 import os
 import yaml
+
+from server_impl.errors import EBadRequest
+from server_impl.errors.custom_errors import ENotFound
 from server_impl.projects_fs.caches import GlobCache, CacheMap
 import datetime
 import shutil
 
 from server_impl.projects_fs.file_names import FileNames, PROJ_DIR
-from server_impl.projects_fs.fs_internals import CacheRegistry, save_project
+from server_impl.projects_fs.fs_internals import CacheRegistry, save_project, read_yaml
 
 
 def list_projects() -> List[ProjectBrief]:
@@ -53,14 +56,15 @@ def delete_project(tag: str):
         shutil.rmtree(dirname)
         CacheRegistry.project_details.remove(tag)
         CacheRegistry.project_list.filter(lambda proj: proj.tag == tag)
-        return 204
+        return
     else:
-        return 404
+        raise ENotFound("No project exists with tag '%s'" % tag)
 
 
 def update_project(project: ProjectDetails):
     project.last_modified = datetime.datetime.now()
     save_project(project)
+
 
 def add_api(tag: str, api: FileStorage):
     match = lookup_tag(tag)
@@ -72,5 +76,3 @@ def add_api(tag: str, api: FileStorage):
         update_project(project)
     else:
         return True, 404
-
-

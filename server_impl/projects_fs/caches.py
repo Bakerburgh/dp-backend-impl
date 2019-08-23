@@ -34,7 +34,9 @@ class GlobCache:
         return self._data
 
     def filter(self, filter_fn):
-        self._data = filter(filter_fn, self._data)
+        # Cache may be empty, in which case there is nothing to do...
+        if self._data:
+            self._data = filter(filter_fn, self._data)
 
 
 class CacheMap:

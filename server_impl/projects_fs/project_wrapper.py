@@ -5,6 +5,7 @@ import datetime
 from openapi_server.models import ProjectDetails, Module
 from server_impl.errors.custom_errors import ENotFound, EConflict
 from server_impl.projects_fs.file_names import FileNames
+from server_impl.projects_fs.fs_internals import read_yaml, save_yaml
 from server_impl.spec_utils import valid_or_raise
 
 from .fs import lookup_tag, update_project
@@ -26,10 +27,22 @@ class ProjectWrapper:
         self.dirty = False
 
     def set_api(self, file: FileStorage):
-        print('~~~~ SET API ' + str(self.target.api_filename))
-        if self.target.api_filename:
-            raise EConflict("Project API already exists")
+        if file.filename.endswith('.json'):
+            content_type = 'text/json'
+        elif file.filename.endswith('.yaml') or file.filename.endswith('.yml'):
+            content_type = 'text/yaml'
+        else:
+            raise EBadRequest('File must have a .json, .yaml, or .yml extension')
 
+        spec_dir = self.spec_dir()
+        if os.path.exists(spec_dir):
+            raise EConflict("An API was already uploaded to this project.")
+        os.makedirs(spec_dir)
+        dest = os.path.join(spec_dir, file.filename)
+        print("Saving API file to '%s'" % dest)
+        file.save(dest)
+
+        file.stream.seek(0)
         try:
             content = yaml.safe_load(file.stream)
         except Exception:
@@ -38,6 +51,10 @@ class ProjectWrapper:
         valid_or_raise(content)
 
         self.target.api_version = content['info']['version']
+        self.target.api_filename = file.filename
+
+
+        # file.save(dest)
 
         self.dirty = True
         return self
@@ -55,3 +72,23 @@ class ProjectWrapper:
 
     def get_modules(self) -> List[Module]:
         return []
+
+    @property
+    def api_filename(self):
+        return self.target.api_filename
+
+    def read_api(self):
+        if not self.target.api_filename:
+            raise ENotFound("No API file has been uploaded")
+        filepath = os.path.join(self.spec_dir(), self.target.api_filename)
+        if not os.path.exists(filepath):
+            print("Failed to find API spec: '%s'" % filepath)
+            raise ENotFound("API file not found")
+        print("Loading API spec: '%s'" % filepath)
+        with open(filepath, 'r') as f:
+            content = f.read()
+        return content
+        # return read_yaml(filepath)
+
+    def spec_dir(self):
+        return os.path.join(self.dirname, 'spec')

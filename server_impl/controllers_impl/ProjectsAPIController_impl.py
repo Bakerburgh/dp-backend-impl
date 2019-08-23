@@ -1,5 +1,6 @@
 import re
 from werkzeug.datastructures import FileStorage
+import connexion
 
 from openapi_server.models import TagStatus, NewProject, ProjectDetails
 from server_impl.projects_fs import ProjectWrapper
@@ -73,7 +74,19 @@ def delete_project(proj_id):
 
 
 def download_api_file(proj_id):
-    return None
+    """Download the OpenAPI specification file.
+
+     # noqa: E501
+
+    :param proj_id: The identifier of a single project
+    :type proj_id: str
+
+    :rtype: file
+    """
+    wrapper = ProjectWrapper(proj_id)
+    if wrapper is None:
+        return 404
+    return wrapper.read_api()
 
 
 def upload_api_file(proj_id: str, specfile: FileStorage):
