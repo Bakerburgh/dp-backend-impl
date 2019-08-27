@@ -5,6 +5,7 @@ import connexion
 from openapi_server.models import TagStatus, NewProject, ProjectDetails
 from server_impl.projects_fs import ProjectWrapper
 from server_impl import projects_fs as fs
+from server_impl import is_valid_tag
 
 urlSafe = re.compile('^[a-zA-Z0-9_-]*$')
 # Project IDs that would conflict with other URLs
@@ -30,8 +31,7 @@ def get_project_details(proj_id: str):
 
 
 def check_tag(tag):
-    m = urlSafe.fullmatch(tag)
-    if m is None:
+    if not is_valid_tag(tag):
         return TagStatus(legal=False, available=False, message='Only letters, numbers, _, and - are allowed')
     if tag in reservedTags:
         return TagStatus(legal=True, available=False)
