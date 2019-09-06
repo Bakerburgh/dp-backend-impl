@@ -2,8 +2,8 @@ import os
 
 from openapi_server.models import FlowGraph, Module, RequestNode, UrlSegment, Port, PortDirection, PortType, \
     AbstractNode
-from openapi_types import OpenApi
-from openapi_types.openapi import OperationObject, ParameterObject
+from generated.openapi import OpenApi
+from generated.openapi import OperationObject, ParameterObject
 from server_impl.errors.custom_errors import ENotFound
 from server_impl.projects_fs.fs_internals import read_yaml
 
@@ -19,7 +19,7 @@ class GraphBuilder:
         self.request: RequestNode = self._buildRequestNode()
 
     def _lookup_param(self, name) -> ParameterObject:
-        for p in self.op.params:
+        for p in self.op.parameters:
             if p.name == name:
                 return p
         raise 500
@@ -41,7 +41,7 @@ class GraphBuilder:
                 port = self._param_to_port(p)
                 port.node = self.get_node_ref(node)
             segments.append(UrlSegment(label=seg, port=port))
-TODO Need a better way to deal with these refs....
+# TODO Need a better way to deal with these refs....
         node.segments = segments
         return node
 

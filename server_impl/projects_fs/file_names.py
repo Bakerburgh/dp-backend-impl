@@ -39,3 +39,6 @@ class FileNames:
         proj_dir = FileNames.project_dir(tag)
         return os.path.join(proj_dir, FileNames.name_brief), os.path.join(proj_dir, FileNames.name_details)
 
+    @classmethod
+    def mocks_dir(cls):
+        return os.path.join(PROJ_DIR, 'mock')
