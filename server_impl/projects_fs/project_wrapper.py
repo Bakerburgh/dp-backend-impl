@@ -2,12 +2,14 @@ from jsonschema import ValidationError
 from typing import List
 from werkzeug.datastructures import FileStorage
 import datetime
+
+from generated.openapi import OpenApi
 from openapi_server.models import ProjectDetails, Module, FlowGraph
 from server_impl import TagBuilder
 from server_impl.errors.custom_errors import ENotFound, EConflict
 from server_impl.projects_fs.file_names import FileNames
 from server_impl.projects_fs.fs_internals import read_yaml, save_yaml
-from server_impl.projects_fs.graph_wrapper import GraphWrapper, build_graph
+from server_impl.projects_fs.graph_wrapper import GraphWrapper, build_graph, load_graph
 from server_impl.spec_utils import valid_or_raise
 
 from .fs import lookup_tag, update_project
@@ -107,25 +109,25 @@ class ProjectWrapper:
         self.dirty = False
 
     def set_api(self, file: FileStorage):
-        return 501
-        # if file.filename.endswith('.json'):
-        #     content_type = 'text/json'
-        # elif file.filename.endswith('.yaml') or file.filename.endswith('.yml'):
-        #     content_type = 'text/yaml'
-        # else:
-        #     raise EBadRequest('File must have a .json, .yaml, or .yml extension')
+
+        if file.filename.endswith('.json'):
+            content_type = 'text/json'
+        elif file.filename.endswith('.yaml') or file.filename.endswith('.yml'):
+            content_type = 'text/yaml'
+        else:
+            raise EBadRequest('File must have a .json, .yaml, or .yml extension')
         #
-        # spec_dir = self.spec_dir()
+        spec_dir = self.spec_dir()
         # if os.path.exists(spec_dir):
         #     raise EConflict("An API was already uploaded to this project.")
         #
-        # content = _preprocess_spec_file(file)
-        # api = OpenApi(content)
+        content = _preprocess_spec_file(file)
+        api = OpenApi.from_data(content)
         #
-        # _save_api_file(spec_dir, file)
+        _save_api_file(spec_dir, file)
         #
-        # mod_dir = self.mod_dir()
-        # os.makedirs(mod_dir)
+        mod_dir = self.mod_dir()
+        os.makedirs(mod_dir)
         # modules = _parse_and_save_module_list(api, self.modmap_filename())
         # for mod in modules:
         #     _save_raw_module(mod_dir, mod)
@@ -134,7 +136,7 @@ class ProjectWrapper:
         # self.target.api_filename = file.filename
         #
         # self.dirty = True
-        # return self
+        return self
 
     def finish(self):
         """
@@ -204,6 +206,25 @@ class ProjectWrapper:
         return os.path.join(self.mod_dir(), 'index.yaml')
 
     def mock_graph(self) -> FlowGraph:
-        filename = os.path.join(FileNames.mocks_dir(), 'graph-01.yaml')
-        data = read_yaml(filename)
-        return FlowGraph.from_dict(data)
+        # class ObjectView(object):
+        #     def __init__(self, data: dict):
+        #         self.__dict__ = data
+        #
+        # class MyFlowGraph:
+        #     def __init__(self):
+        #         self.request_id = 'foo'
+        #         self.response_id = 'bar'
+        #         self.nodes = {}  # ObjectView({})
+        #
+        #     def __str__(self):
+        #         return str(self.__dict__)
+        #
+        #     def __repr__(self):
+        #         return str(self.__dict__)
+
+        return FlowGraph()
+
+        # filename = os.path.join(FileNames.mocks_dir(), 'graph-01.yaml')
+        # graph = load_graph(filename)
+        # return graph
+        # return FlowGraph.from_dict(graph)

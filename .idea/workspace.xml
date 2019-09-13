@@ -1,8 +1,164 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bdcbe6db-6b5f-4b7e-8b0a-4ef861d92587" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../openapi_python_bindings/foo/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../openapi_python_bindings/foo/foo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../openapi_python_bindings/run_openapi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../openapi_python_bindings/wip_generated.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/encoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/encoder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/abstract_node.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/abstract_node.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/constant_node.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/constant_node.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/constant_node_all_of.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/constant_node_all_of.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/data_node.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/data_node.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/data_node_all_of.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/data_node_all_of.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/data_node_field.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/data_node_field.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/data_source_node.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/data_source_node.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/data_source_node_all_of.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/data_source_node_all_of.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/direction.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/direction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/edge.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/edge.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/filter_node.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/filter_node.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/filter_node_all_of.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/filter_node_all_of.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/flow_graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/flow_graph.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/http_body.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/http_body.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/inline_object.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/inline_object.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/item_layout.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/item_layout.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/layout_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/layout_settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/method_type.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/method_type.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/module.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/module.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/new_project.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/new_project.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/node.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/node.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/plug_layout.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/plug_layout.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/port.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/port.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/port_direction.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/port_direction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/port_type.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/port_type.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/project_brief.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/project_brief.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/project_details.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/project_details.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/request_node.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/request_node.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/request_node_all_of.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/request_node_all_of.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/response_node.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/response_node.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/response_node_all_of.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/response_node_all_of.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/schema.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/string_constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/string_constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/tag_status.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/tag_status.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/url_segment.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/url_segment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/validator.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/validator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/backend-impl.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/backend-impl.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_impl/controllers_impl/EditorAPIController_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_impl/controllers_impl/EditorAPIController_impl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_impl/projects_fs/fs_internals.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_impl/projects_fs/fs_internals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_impl/projects_fs/graph_wrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_impl/projects_fs/graph_wrapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_impl/projects_fs/project_wrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_impl/projects_fs/project_wrapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/.idea/openapi_python_bindings.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/.idea/openapi_python_bindings.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/data/graph_types.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/data/graph_types.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/data/openapi.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/data/openapi.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/graph_utils/graph_wrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/graph_utils/graph_wrapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/graph_utils/request.py" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/graph_utils/request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/graph_utils/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/graph_utils/response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/templates/class.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/templates/class.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/templates/map.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/templates/map.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/templates/ref_each.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/templates/ref_each.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/templates/refs.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/templates/refs.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/test_openapi.py" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend" />
+  </component>
   <component name="ProjectId" id="1PhVzaeiFjE0f2Pqy1qmwvKGed4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/launch_server.py" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="launch_server" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="backend-impl" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/opt/anaconda3/envs/dp/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/launch_server.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bdcbe6db-6b5f-4b7e-8b0a-4ef861d92587" name="Default Changelist" comment="" />
+      <created>1568407216876</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1568407216876</updated>
+      <workItem from="1568407217906" duration="810000" />
+      <workItem from="1568408044269" duration="2051000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/backend_impl$launch_server.coverage" NAME="launch_server Coverage Results" MODIFIED="1568407906957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

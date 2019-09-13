@@ -38,7 +38,7 @@ def construct_project_list():
     ret = []
     for f in glob(Patterns.project_list):
         raw = read_yaml(f)
-        proj = ProjectBrief.from_dict(raw)
+        proj = ProjectBrief.inflate(raw)
         ret.append(proj)
     return ret
 
@@ -55,8 +55,8 @@ def construct_project_details(tag: str):
     details = read_yaml(FileNames.project_details(tag))
     combined = {**brief, **details}
 
-    debug_dict(ProjectDetails.from_dict(combined).to_dict(), 'BUILT')
-    return ProjectDetails.from_dict(combined)
+    debug_dict(ProjectDetails.inflate(combined).flatten(), 'BUILT')
+    return ProjectDetails.inflate(combined)
 
 
 class CacheRegistry:
@@ -66,10 +66,10 @@ class CacheRegistry:
 
 def save_project(details: ProjectDetails):
     print('_save_project: Description: %s' % details.description)
-    data = details.to_dict()
+    data = details.flatten()
     print(data)
 
-    brief_data = ProjectBrief.from_dict(data).to_dict()
+    brief_data = ProjectBrief.inflate(data).flatten()
     file_brief, file_detail = FileNames.project_info(details.tag)
     print('Saving to file: %s' % file_brief)
     save_yaml(file_brief, brief_data)

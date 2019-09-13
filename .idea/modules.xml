@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/backend-impl.iml" filepath="$PROJECT_DIR$/.idea/backend-impl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/.idea/dpipes-api-server.iml" filepath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/.idea/dpipes-api-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../openapi_python_bindings/.idea/openapi_python_bindings.iml" filepath="$PROJECT_DIR$/../openapi_python_bindings/.idea/openapi_python_bindings.iml" />
     </modules>
   </component>
 </project>

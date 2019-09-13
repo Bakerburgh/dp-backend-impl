@@ -2,10 +2,28 @@ import os
 
 from openapi_server.models import FlowGraph, Module, RequestNode, UrlSegment, Port, PortDirection, PortType, \
     AbstractNode
-from generated.openapi import OpenApi
+
 from generated.openapi import OperationObject, ParameterObject
 from server_impl.errors.custom_errors import ENotFound
 from server_impl.projects_fs.fs_internals import read_yaml
+import yaml
+
+
+class ObjectView(object):
+    def __init__(self, data: dict):
+        self.__dict__ = data
+
+
+def load_graph(filename: str):
+    with open(filename, 'r') as f:
+        graph = yaml.safe_load(f)
+    # Convert dictionaries to objects to make the validator happy...
+    graph['nodes'] = ObjectView(graph['nodes'])
+    graph['edges'] = ObjectView(graph['edges'])
+    graph['ports'] = ObjectView(graph['ports'])
+    graph['validators'] = ObjectView(graph['validators'])
+    graph = ObjectView(graph)
+    return graph
 
 
 class GraphBuilder:
