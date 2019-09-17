@@ -1,4 +1,4 @@
-from typing import Callable, List
+from typing import Callable, List, TypeVar, Generic
 from glob import glob
 import os
 
@@ -64,3 +64,36 @@ class CacheMap:
         if key in self.caches:
             del self.caches[key]
 
+
+T = TypeVar('T')
+
+
+class CacheDoubleMap(Generic[T]):
+
+    def __init__(self, pattern: Callable[[str, str], str], accessor: Callable[[str, str], T]):
+        """
+        Build a map from some key to a glob cache per key.
+        :param pattern: A function that returns the glob pattern for these two keys.
+        :type pattern: (str, str) -> str
+        :param accessor: A function that takes the key returns the data for use in the cache.
+        :type accessor: (str, str) -> obj
+        """
+        self.patternBuilder = pattern
+        self.caches = dict()
+        self.accessor = accessor
+
+    def _compound_key(self, key1: str, key2: str) -> str:
+        return "%s ~.~ %s" % (key1, key2)
+
+    def of(self, key1: str, key2: str):
+        ckey = self._compound_key(key1, key2)
+        cache = self.caches.get(ckey)
+        if cache is None:
+            cache = GlobCache(self.patternBuilder(key1, key2), self.accessor, [key1, key2])
+            self.caches[ckey] = cache
+        return cache
+
+    def remove(self, key1: str, key2: str):
+        ckey = self._compound_key(key1, key2)
+        if ckey in self.caches:
+            del self.caches[ckey]

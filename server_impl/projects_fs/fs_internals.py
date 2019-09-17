@@ -1,8 +1,12 @@
+from enum import Enum
+
 import yaml
 import os
 
-from openapi_server.models import ProjectBrief, ProjectDetails
-from server_impl.projects_fs.caches import GlobCache, CacheMap
+from typing import Union, List
+
+from openapi_server.models import ProjectBrief, ProjectDetails, Module, FlowGraph
+from server_impl.projects_fs.caches import GlobCache, CacheMap, CacheDoubleMap
 from .file_names import FileNames, PROJ_DIR
 from glob import glob
 
@@ -14,7 +18,14 @@ def repr_datetime_as_string(dumper, data):
 # yaml.SafeDumper.add_representer(datetime.datetime, repr_datetime_as_string)
 
 
-def read_yaml(filename: str) -> object:
+def repr_enum(dumper, data: Enum):
+    return dumper.represent_str(data.value)
+
+
+yaml.SafeDumper.add_representer(Enum, repr_enum)
+
+
+def read_yaml(filename: str) -> Union[dict, list, object]:
     with open(filename, 'r') as f:
         data = yaml.safe_load(f)
     return data
@@ -32,6 +43,18 @@ class Patterns:
     @classmethod
     def project_details(cls, tag: str):
         return os.path.join(FileNames.project_dir(tag), '*.yaml')
+
+    @classmethod
+    def project_modules(cls, tag: str):
+        return os.path.join(FileNames.project_dir(tag), 'modules', '*-modules.yaml')
+
+    @staticmethod
+    def project_module_file(tag: str, mod: str):
+        return os.path.join(FileNames.project_dir(tag), 'modules', '%s-modules.yaml' % mod)
+
+    @staticmethod
+    def project_graph_file(tag: str, mod: str):
+        return os.path.join(FileNames.project_dir(tag), 'modules', '%s-graph.yaml' % mod)
 
 
 def construct_project_list():
@@ -59,9 +82,26 @@ def construct_project_details(tag: str):
     return ProjectDetails.inflate(combined)
 
 
+def construct_module_list(tag: str) -> List[Module]:
+    ret = []
+    for f in glob(Patterns.project_modules(tag)):
+        raw = read_yaml(f)
+        mod = Module.inflate(raw)
+        ret.append(mod)
+    return ret
+
+
+def construct_graph(tag: str, mod: str) -> FlowGraph:
+    filename = Patterns.project_graph_file(tag, mod)
+    data = read_yaml(filename)
+    return FlowGraph.inflate(data)
+
+
 class CacheRegistry:
     project_list = GlobCache(Patterns.project_list, construct_project_list)
     project_details = CacheMap(Patterns.project_details, construct_project_details)
+    module_list = CacheMap(Patterns.project_modules, construct_module_list)
+    graphs = CacheDoubleMap(Patterns.project_graph_file, construct_graph)
 
 
 def save_project(details: ProjectDetails):

@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="openapi_python_bindings" />
     <orderEntry type="module" module-name="dpipes-api-server" />
+    <orderEntry type="module" module-name="py_wip" />
   </component>
 </module>

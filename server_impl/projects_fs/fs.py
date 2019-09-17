@@ -3,7 +3,7 @@ from glob import glob
 
 from werkzeug.datastructures import FileStorage
 
-from openapi_server.models import ProjectBrief, ProjectDetails, NewProject, StringConstants
+from openapi_server.models import ProjectBrief, ProjectDetails, NewProject, StringConstants, FlowGraph, Module
 
 import os
 import yaml
@@ -20,6 +20,14 @@ from server_impl.projects_fs.fs_internals import CacheRegistry, save_project, re
 
 def list_projects() -> List[ProjectBrief]:
     return CacheRegistry.project_list.data
+
+
+def list_modules(tag: str) -> List[Module]:
+    return CacheRegistry.module_list.of(tag).data
+
+
+def load_graph(tag: str, mod: str) -> FlowGraph:
+    return CacheRegistry.graphs.of(tag, mod).data
 
 
 def lookup_tag(tag: str) -> Optional[Tuple[ProjectDetails, str]]:
@@ -45,7 +53,7 @@ def make_project(proj: NewProject):
     os.makedirs(dirname)
 
     project = ProjectDetails(tag=proj.tag, name=proj.name, last_modified=datetime.datetime.now(),
-                             description=proj.description, api_version=StringConstants.NOT_SET)
+                             description=proj.description, api_version=StringConstants.NOT_SET.value)
     save_project(project)
     return project
 

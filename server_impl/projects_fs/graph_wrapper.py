@@ -14,16 +14,16 @@ class ObjectView(object):
         self.__dict__ = data
 
 
-def load_graph(filename: str):
-    with open(filename, 'r') as f:
-        graph = yaml.safe_load(f)
-    # Convert dictionaries to objects to make the validator happy...
-    graph['nodes'] = ObjectView(graph['nodes'])
-    graph['edges'] = ObjectView(graph['edges'])
-    graph['ports'] = ObjectView(graph['ports'])
-    graph['validators'] = ObjectView(graph['validators'])
-    graph = ObjectView(graph)
-    return graph
+# def load_graph(filename: str):
+#     with open(filename, 'r') as f:
+#         graph = yaml.safe_load(f)
+#     # Convert dictionaries to objects to make the validator happy...
+#     # graph['nodes'] = ObjectView(graph['nodes'])
+#     # graph['edges'] = ObjectView(graph['edges'])
+#     # graph['ports'] = ObjectView(graph['ports'])
+#     # graph['validators'] = ObjectView(graph['validators'])
+#     # graph = ObjectView(graph)
+#     return FlowGraph.inflate(graph)
 
 
 class GraphBuilder:

@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdcbe6db-6b5f-4b7e-8b0a-4ef861d92587" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../openapi_python_bindings/foo/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../openapi_python_bindings/foo/foo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../openapi_python_bindings/run_openapi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../openapi_python_bindings/wip_generated.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server_impl/spec_utils/converter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../openapi_python_bindings/data/model.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../openapi_python_bindings/view_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/controllers/projects_api_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/controllers/projects_api_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/encoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/encoder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/abstract_node.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/abstract_node.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/base_model_.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/base_model_.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/constant_node.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/constant_node.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/constant_node_all_of.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/constant_node_all_of.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/data_node.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/data_node.py" afterDir="false" />
@@ -44,33 +45,42 @@
       <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/tag_status.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/tag_status.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/url_segment.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/url_segment.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/validator.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/models/validator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/openapi/openapi.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/openapi/openapi.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend/openapi_server/util.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/backend-impl.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/backend-impl.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/debug_runner.py" beforeDir="false" afterPath="$PROJECT_DIR$/debug_runner.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server_impl/controllers_impl/EditorAPIController_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_impl/controllers_impl/EditorAPIController_impl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_impl/controllers_impl/ProjectAPIController_impl.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_impl/controllers_impl/ProjectAPIController_impl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_impl/projects_fs/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_impl/projects_fs/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_impl/projects_fs/caches.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_impl/projects_fs/caches.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_impl/projects_fs/fs.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_impl/projects_fs/fs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server_impl/projects_fs/fs_internals.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_impl/projects_fs/fs_internals.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server_impl/projects_fs/graph_wrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_impl/projects_fs/graph_wrapper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server_impl/projects_fs/project_wrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_impl/projects_fs/project_wrapper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/.idea/openapi_python_bindings.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/.idea/openapi_python_bindings.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/data/graph_types.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/data/graph_types.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/data/openapi.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/data/openapi.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/foo/foo.py" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/foo/foo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/graph_utils/api_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/graph_utils/api_parser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/graph_utils/graph_wrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/graph_utils/graph_wrapper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/graph_utils/request.py" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/graph_utils/request.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/graph_utils/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/graph_utils/response.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/templates/class.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/templates/class.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/templates/map.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/templates/map.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/templates/ref_each.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/templates/ref_each.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/templates/refs.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/templates/refs.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/test_openapi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/run_openapi.py" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/run_openapi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/runner.bash" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/runner.bash" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../openapi_python_bindings/validator_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/../openapi_python_bindings/validator_check.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../api-dpipes/submodules/generated-backend" />
@@ -80,7 +90,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/launch_server.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server_impl/spec_utils" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -89,7 +99,22 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyDependenciesConfigurable" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings>
+        <option name="useSoftWraps" value="true" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server_impl/spec_utils" />
+      <recent name="$USER_HOME$/q/py_wip" />
+      <recent name="$PROJECT_DIR$/../openapi_python_bindings" />
+      <recent name="$PROJECT_DIR$/../openapi_python_bindings/data" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -103,7 +128,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.launch_server">
+    <configuration name="WIP runner" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="py_wip" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/q/py_wip" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/q/py_wip/runner.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="launch_server" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="backend-impl" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -126,6 +170,81 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="run_openapi" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="openapi_python_bindings" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../openapi_python_bindings" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../openapi_python_bindings/run_openapi.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="validator_check" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="openapi_python_bindings" />
+      <option name="INTERPRETER_OPTIONS" value="-i" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../openapi_python_bindings" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../openapi_python_bindings/validator_check.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="view_models" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="openapi_python_bindings" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../openapi_python_bindings" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../openapi_python_bindings/view_models.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.launch_server" />
+      <item itemvalue="Python.validator_check" />
+      <item itemvalue="Python.view_models" />
+      <item itemvalue="Python.run_openapi" />
+      <item itemvalue="Python.WIP runner" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.WIP runner" />
+        <item itemvalue="Python.run_openapi" />
+        <item itemvalue="Python.validator_check" />
+        <item itemvalue="Python.view_models" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -138,7 +257,8 @@
       <option name="presentableId" value="Default" />
       <updated>1568407216876</updated>
       <workItem from="1568407217906" duration="810000" />
-      <workItem from="1568408044269" duration="2051000" />
+      <workItem from="1568408044269" duration="2470000" />
+      <workItem from="1568659404309" duration="28952000" />
     </task>
     <servers />
   </component>
@@ -158,7 +278,22 @@
       </map>
     </option>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../openapi_python_bindings/view_models.py</url>
+          <line>26</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/backend_impl$launch_server.coverage" NAME="launch_server Coverage Results" MODIFIED="1568407906957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/backend_impl$validator_check.coverage" NAME="validator_check Coverage Results" MODIFIED="1568662115203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../openapi_python_bindings" />
+    <SUITE FILE_PATH="coverage/backend_impl$runner.coverage" NAME="runner Coverage Results" MODIFIED="1568669196333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/q/py_wip" />
+    <SUITE FILE_PATH="coverage/backend_impl$launch_server.coverage" NAME="launch_server Coverage Results" MODIFIED="1568692782718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/backend_impl$view_models.coverage" NAME="view_models Coverage Results" MODIFIED="1568660973458" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../openapi_python_bindings" />
+    <SUITE FILE_PATH="coverage/backend_impl$run_openapi.coverage" NAME="run_openapi Coverage Results" MODIFIED="1568668206514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../openapi_python_bindings" />
   </component>
 </project>
